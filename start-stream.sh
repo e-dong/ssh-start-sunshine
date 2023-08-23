@@ -16,7 +16,9 @@ check_host(){
 }
 
 start_stream(){
-	ssh -f $ssh_args "~/scripts/sunshine.sh &> /dev/null" 
+	echo "Starting sunshine server on host..."
+	echo "Start moonlight on your client of choice"
+	ssh $ssh_args "~/scripts/sunshine.sh &" 
 }
 
 cleanup(){
