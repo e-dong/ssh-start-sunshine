@@ -27,7 +27,7 @@ check_ssh
 start_stream
 exit_code=${?}
 
-sleep 1
+sleep 3
 exit ${exit_code}
 
 
