@@ -27,3 +27,7 @@ start_stream(){
 check_ssh
 start_stream
 
+sleep 3
+exit 0
+
+
