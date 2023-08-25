@@ -23,11 +23,11 @@ start_stream(){
   ssh -f $ssh_args "~/scripts/sunshine.sh &" 
 }
 
-
 check_ssh
 start_stream
+exit_code=${?}
 
-sleep 3
-exit 0
+sleep 1
+exit ${exit_code}
 
 
