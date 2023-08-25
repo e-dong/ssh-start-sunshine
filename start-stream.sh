@@ -2,7 +2,7 @@
 
 ssh_args="eric@192.168.1.3"
 
-check_host(){
+check_ssh(){
 	result=1
 	while [[ $result -ne 0 ]]
 	do
@@ -18,18 +18,10 @@ check_host(){
 start_stream(){
 	echo "Starting sunshine server on host..."
 	echo "Start moonlight on your client of choice"
-	ssh $ssh_args "~/scripts/sunshine.sh &" 
-}
-
-cleanup(){
-	ssh $ssh_args "pkill -ef sunshine"
-	ssh $ssh_args "pkill -ef X"
+	ssh -f $ssh_args "~/scripts/sunshine.sh &" 
 }
 
 
-check_host
+check_ssh
 start_stream
-
-# Doing ctrl + c will continue the script and activate the cleanup
-#cleanup
 
