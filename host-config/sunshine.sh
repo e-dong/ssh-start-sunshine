@@ -4,6 +4,7 @@ export DISPLAY=:0
 
 width=${1:-1920}
 height=${2:-1080}
+scale=${3:-1}
 
 # Check existing X server
 ps -e | grep X >/dev/null
@@ -16,8 +17,7 @@ ps -e | grep X >/dev/null
 } || echo "X Server already running"
 
 sleep 3
-$HOME/scripts/set-custom-res.sh ${width} ${height}
-#$HOME/scripts/wallpaper.sh
+$HOME/scripts/set-custom-res.sh ${width} ${height} ${scale} 2>/dev/null
 
 # Startup any apps
 #steam &>/dev/null &
