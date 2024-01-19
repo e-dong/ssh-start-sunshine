@@ -2,5 +2,5 @@
 
 current_dir=$(readlink -f $(dirname ${BASH_SOURCE[0]}))
 
-${current_dir}/client-config/start-stream.sh 2224 1668 0.5
+${current_dir}/client-config/start-stream.sh 2224 1668 144
 

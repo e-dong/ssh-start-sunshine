@@ -4,7 +4,7 @@ ssh_args="eric@192.168.1.3"
 
 width=${1:-1920}
 height=${2:-1080}
-scale=${3:-1}
+dpi=${3:-144}
 
 check_ssh(){
   result=1
@@ -24,7 +24,7 @@ check_ssh(){
 start_stream(){
   echo "Starting sunshine server on host..."
   echo "Start moonlight on your client of choice"
-  ssh -f $ssh_args "~/scripts/sunshine.sh ${width} ${height} ${scale} &" 
+  ssh -f $ssh_args "~/scripts/sunshine.sh ${width} ${height} ${dpi} &" 
 }
 
 check_ssh
