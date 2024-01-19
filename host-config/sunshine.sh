@@ -17,7 +17,7 @@ ps -e | grep X >/dev/null
 } || echo "X Server already running"
 
 sleep 3
-$HOME/scripts/set-custom-res.sh ${width} ${height} ${scale} 2>/dev/null
+#$HOME/scripts/set-custom-res.sh ${width} ${height} ${scale} 2>/dev/null
 
 # Startup any apps
 #steam &>/dev/null &
@@ -27,7 +27,7 @@ $HOME/scripts/set-custom-res.sh ${width} ${height} ${scale} 2>/dev/null
 # Check if sunshine is already running
 ps -e | grep -e .*sunshine$ >/dev/null
 [[ $? -ne 0 ]] && {
-  sudo ${HOME}/scripts/sunshine-setup.sh
+  #sudo ${HOME}/scripts/sunshine-setup.sh
   echo "Starting Sunshine!"
   sunshine > /dev/null &
   [[ $? -eq 0 ]] && {
