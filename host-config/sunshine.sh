@@ -10,8 +10,6 @@ dpi=${3:-144}
 ps -e | grep X >/dev/null
 [[ $? -ne 0 ]] && {
   echo "Starting X Server"
-  echo "DPI: ${dpi}"
-  echo "Xft.dpi: ${dpi}" | xrdb
   startx &>/dev/null &
   [[ $? -eq 0 ]] && {
       echo "X Server started successfully"
@@ -19,7 +17,9 @@ ps -e | grep X >/dev/null
 } || echo "X Server already running"
 
 sleep 3
-
+echo "DPI: ${dpi}"
+echo "Xft.dpi: ${dpi}" | xrdb
+  
 
 # Startup any apps
 #steam &>/dev/null &
