@@ -9,6 +9,8 @@ dpi=${3:-144}
 # Check existing X server
 ps -e | grep X >/dev/null
 [[ $? -ne 0 ]] && {
+  echo "DPI: ${dpi}"
+  echo "Xft.dpi: ${dpi}" > $HOME/.Xresources 
   echo "Starting X Server"
   startx &>/dev/null &
   [[ $? -eq 0 ]] && {
@@ -17,9 +19,7 @@ ps -e | grep X >/dev/null
 } || echo "X Server already running"
 
 sleep 3
-echo "DPI: ${dpi}"
-echo "Xft.dpi: ${dpi}" > $HOME/.Xresources
-  
+ 
 
 # Startup any apps
 #steam &>/dev/null &
