@@ -18,7 +18,7 @@ ps -e | grep X >/dev/null
 
 sleep 3
 echo "DPI: ${dpi}"
-echo "Xft.dpi: ${dpi}" | xrdb
+echo "Xft.dpi: ${dpi}" > $HOME/.Xresources
   
 
 # Startup any apps
