@@ -2,9 +2,7 @@
 
 export DISPLAY=:0
 
-width=${1:-1920}
-height=${2:-1080}
-dpi=${3:-144}
+dpi=${1:-144}
 
 # Check existing X server
 ps -e | grep X >/dev/null
