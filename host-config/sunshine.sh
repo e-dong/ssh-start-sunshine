@@ -2,7 +2,7 @@
 
 export DISPLAY=:0
 
-dpi=${1:-144}
+dpi=${1:-96}
 
 # Check existing X server
 ps -e | grep X >/dev/null

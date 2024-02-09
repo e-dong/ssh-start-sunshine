@@ -2,7 +2,7 @@
 
 ssh_args="eric@192.168.1.3"
 
-dpi=${1:-144}
+dpi=${1:-96}
 
 check_ssh(){
   result=1
