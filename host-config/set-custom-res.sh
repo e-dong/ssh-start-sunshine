@@ -12,12 +12,12 @@ refresh_rate=${3:-60}
 echo "args: $@"
 env | grep SUNSHINE
 
-display_output=$(xrandr | grep " connected" | awk '{ print $1 }')
+display_output=$(xrandr | grep " primary" | awk '{ print $1 }')
 modeline=$(cvt ${width} ${height} ${refresh_rate} | awk 'FNR == 2')
 xrandr_mode_str=${modeline//Modeline \"*\" /}
-mode_alias="${width}x${height}"
+#mode_alias="${width}x${height}_${refresh_rate}"
 # Can use the following if you want the default alias "<width>x<height>_<rate>"
-# mode_alias=$(echo ${modeline} | awk '{ print $2 }')
+mode_alias=$(echo ${modeline} | awk '{ print $2 }')
 
 echo "xrandr setting new mode ${mode_alias} ${xrandr_mode_str}"
 xrandr --newmode ${mode_alias} ${xrandr_mode_str}
@@ -25,6 +25,5 @@ xrandr --addmode ${display_output} ${mode_alias}
 
 # Reset scaling
 # Apply new xrandr mode
-xrandr --output ${display_output} --primary --mode ${mode_alias} --pos 0x0 --rotate normal
+xrandr --output ${display_output} --mode ${mode_alias} --pos 0x0 --rotate normal
 $HOME/scripts/wallpaper.sh
-

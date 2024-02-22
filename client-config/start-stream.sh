@@ -2,8 +2,6 @@
 
 ssh_args="eric@192.168.1.3"
 
-dpi=${1:-96}
-
 check_ssh(){
   result=1
   while [[ $result -ne 0 ]]
@@ -22,7 +20,7 @@ check_ssh(){
 start_stream(){
   echo "Starting sunshine server on host..."
   echo "Start moonlight on your client of choice"
-  ssh -f $ssh_args "~/scripts/sunshine.sh ${dpi} &" 
+  ssh -f $ssh_args "~/scripts/sunshine.sh &" 
 }
 
 check_ssh

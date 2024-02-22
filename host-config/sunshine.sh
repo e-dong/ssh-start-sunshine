@@ -2,13 +2,9 @@
 
 export DISPLAY=:0
 
-dpi=${1:-96}
-
 # Check existing X server
 ps -e | grep X >/dev/null
-[[ $? -ne 0 ]] && {
-  echo "DPI: ${dpi}"
-  echo "Xft.dpi: ${dpi}" > $HOME/.Xresources 
+[[ $? -ne 0 ]] && {  
   echo "Starting X Server"
   startx &>/dev/null &
   [[ $? -eq 0 ]] && {
@@ -27,7 +23,6 @@ sleep 3
 # Check if sunshine is already running
 ps -e | grep -e .*sunshine$ >/dev/null
 [[ $? -ne 0 ]] && {
-  #sudo ${HOME}/scripts/sunshine-setup.sh
   echo "Starting Sunshine!"
   sunshine > /dev/null &
   [[ $? -eq 0 ]] && {
